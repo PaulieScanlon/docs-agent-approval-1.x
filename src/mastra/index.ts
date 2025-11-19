@@ -12,8 +12,8 @@ export const mastra = new Mastra({
   tools: { weatherTool, galleryTool },
   logger: new PinoLogger(),
   storage: new LibSQLStore({
-    id: "mastra-storage",
-    url: ":memory:"
+    id: 'mastra-storage',
+    url: "file:./mastra.db", // Storage is required for tracing
   }),
   observability: new Observability({
     // Enables Tracing
