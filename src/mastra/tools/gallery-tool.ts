@@ -11,7 +11,11 @@ export const galleryTool = createTool({
     activities: z.array(z.string())
   }),
   execute: async ({ location }) => {
-    const response = await fetch(`https://nominatim.openstreetmap.org/search?q=${location} gallery&format=json&limit=20&extratags=1`);
+    const response = await fetch(`https://nominatim.openstreetmap.org/search?q=${location} gallery&format=json&limit=20&extratags=1`, {
+      headers: {
+        'User-Agent': 'Mastra Planning Agent'
+      }
+    });
     const data = await response.json();
     const activities = data.map((place: any) => place.name).filter((name: string) => name);
 
