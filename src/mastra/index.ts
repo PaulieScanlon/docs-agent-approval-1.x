@@ -4,7 +4,7 @@ import { PinoLogger } from "@mastra/loggers";
 import { Observability } from "@mastra/observability";
 
 import { planningAgent } from "./agents/planning-agent";
-import { galleryTool } from "./tools/activity-tool";
+import { galleryTool } from "./tools/gallery-tool";
 import { weatherTool } from "./tools/weather-tool";
 
 export const mastra = new Mastra({

@@ -1,6 +1,6 @@
 import { Agent } from "@mastra/core/agent";
 import { weatherTool } from "../tools/weather-tool";
-import { galleryTool } from "../tools/activity-tool";
+import { galleryTool } from "../tools/gallery-tool";
 // import { Memory } from "@mastra/memory";
 // import { LibSQLStore } from "@mastra/libsql";
 
