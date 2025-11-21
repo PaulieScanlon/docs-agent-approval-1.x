@@ -2,9 +2,9 @@ import "dotenv/config";
 
 import { mastra } from "./mastra";
 
-const agent = mastra.getAgent("planningAgent");
+const agent = mastra.getAgent("testAgentA");
 
-const stream = await agent.stream("Plan my trip to London", {
+const stream = await agent.stream("What's the weather London", {
   requireToolApproval: true
 });
 
@@ -25,16 +25,3 @@ const handleApproval = async () => {
 setTimeout(() => {
   handleApproval();
 }, 2000);
-
-const handleDecline = async () => {
-  const declinedStream = await agent.declineToolCall({ runId: stream.runId });
-
-  for await (const chunk of declinedStream.textStream) {
-    process.stdout.write(chunk);
-  }
-  process.stdout.write("\n");
-};
-
-// setTimeout(() => {
-//   handleDecline();
-// }, 2000);

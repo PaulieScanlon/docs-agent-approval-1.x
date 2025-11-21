@@ -1,22 +1,14 @@
 import { Mastra } from "@mastra/core/mastra";
 import { LibSQLStore } from "@mastra/libsql";
-import { PinoLogger } from "@mastra/loggers";
-import { Observability } from "@mastra/observability";
 
-import { planningAgent } from "./agents/planning-agent";
-import { galleryTool } from "./tools/gallery-tool";
-import { weatherTool } from "./tools/weather-tool";
+import { testAgentA } from "./agents/test-agent-a";
+import { testAgentB } from "./agents/test-agent-b";
 
 export const mastra = new Mastra({
-  agents: { planningAgent },
-  tools: { weatherTool, galleryTool },
-  logger: new PinoLogger(),
+  agents: { testAgentA, testAgentB },
   storage: new LibSQLStore({
-    id: 'mastra-storage',
-    url: "file:./mastra.db", // Storage is required for tracing
-  }),
-  observability: new Observability({
-    // Enables Tracing
-    default: { enabled: true }
+    id: "mastra-storage",
+    url: "file:./mastra.db" // Storage is required for tracing
+    // url: ":memory:"
   })
 });
